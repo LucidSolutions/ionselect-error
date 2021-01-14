@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form novalidate [formGroup]="bookingForm"> 
+			<ion-item class="ion-text-left white">	
+				<ion-label >SELECT A VENUE</ion-label>
+			    <ion-select #venueLists formControlName="siteid" placeholder="SELECT A VENUE" okText="OK" cancelText="Cancel" (ionChange)="selectOption($event,1)">
+			    	<ion-select-option *ngFor="let venue of venueList" [value]="venue">
+			    		{{venue}}
+			    	</ion-select-option>
+			    </ion-select>
+			</ion-item>
+
+
+			<ion-item class="ion-text-left white">	
+				<ion-label >SELECT A PARTY SIZE</ion-label>
+			    <ion-select #partyLists  interface="alert" formControlName="partySize" placeholder="SELECT A PARTY SIZE" okText="OK" cancelText="Cancel" (ionChange)="selectOption($event,2)">
+			    	<ion-select-option *ngFor="let p of partSizeList" [value]="p">
+			    		{{ p }}
+			    	</ion-select-option>
+			    </ion-select>
+			</ion-item>
+
+			<ion-item class="ion-text-left white">	
+				<ion-label >SELECT A TIME</ion-label>
+			    <ion-select #visitLists interface="alert" formControlName="visitTime" placeholder="SELECT A TIME" okText="OK" cancelText="Cancel" (ionChange)="selectOption($event,3)">
+				    <ion-select-option *ngFor="let v of visitTimeList" [value]="v">
+				    		{{v}}
+			    	</ion-select-option>
+			    </ion-select>
+			</ion-item>
+	</form>		
+</ion-content>
